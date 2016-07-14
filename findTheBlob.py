@@ -124,7 +124,8 @@ def findRandomBlob():
             picture = takePicture()
     
     # go towards the blob        
-    forward(1, 10)
+    while findColorSpot(takePicture(), LOOKING_FOR) != -1:
+        forward(1, 2)
 
 findRandomBlob()
 backward(1, 3)
