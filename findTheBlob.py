@@ -2,6 +2,9 @@ from Myro import *
 from Graphics import *
 from random import *
 
+userInput = input("Which color do you want? (1. RED) (2. GREEN) (3.BLUE) (4.YELLOW)")
+
+
 width = 500
 height = 500
 sim = Simulation("Maze World", width, height, Color("gray"))
@@ -100,33 +103,36 @@ GREEN = 2
 BLUE = 3
 YELLOW = 4
 
-def findRandomBlob():
-    LOOKING_FOR = randint(1, 4) # randomize the color we are looking for
-    print(LOOKING_FOR)
-
+def findBlob(LOOKING_FOR):
     picture = takePicture()
     degree = 5 # the amount of degrees the robot will turn
+    if(randint(0, 1) == 0):
+        degree = -5
     width = getWidth(picture)
 
     #keep turning until we find the color we are looking for
     while findColorSpot(picture, LOOKING_FOR) == 0:
-        turnBy(degree)
+        turnBy(abs(degree))
         picture = takePicture()
 
     #center the color after we find it
     if findColorSpot(picture, LOOKING_FOR) < width / 2: # if it is to the left
         while findColorSpot(picture, LOOKING_FOR) < width/2:
-            turnBy(degree)
+            turnBy(abs(degree))
             picture = takePicture()
     elif findColorSpot(picture, LOOKING_FOR) > width / 2: # if it is to the right
         while findColorSpot(picture, LOOKING_FOR) > width/2:
-            turnBy(-degree)
+            turnBy(-abs(degree))
             picture = takePicture()
     
     # go towards the blob        
     while findColorSpot(takePicture(), LOOKING_FOR) != -1:
-        forward(1, 2)
+        forward(1, 1)
 
-findRandomBlob()
-backward(1, 3)
-findRandomBlob()
+
+num = int(userInput)
+
+if(num > 4 or num < 0):
+    print("Sorry, colors range from 0 - 4")
+else:
+    findBlob(num)
