@@ -8,11 +8,11 @@ titleOpener = [
     "Return of the ",
     "The ",
     "Attack From ",
-    "Attack on ",
-    "Kingdom of ",
+    "Attack on the ",
+    "Kingdom of the ",
     "Mega ",
     "Looking For ",
-    "Fault in The ",
+    "Fault in the ",
     "Abnormal ",
     "Rise of the "
 ]
