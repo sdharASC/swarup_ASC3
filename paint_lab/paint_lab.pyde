@@ -7,13 +7,10 @@ b=color (0,0,255)
 p=color (200,10,200)
 w=color (255,255,255)
 blck=color (0,0,0)
-myColors = []
+myColors = [r,o,y,g,b,p,w,blck]
 pickColor = 0
 
 def setup ():
-    global myColors
-    myColors.append(r,o,y,g,b,p,w,blck)
-    print(myColors)
     size(400,600)
 
 def draw ():
