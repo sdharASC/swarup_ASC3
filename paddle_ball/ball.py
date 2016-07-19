@@ -8,13 +8,13 @@ class Ball:
         self.y = y
         self.velX = 3
         self.velY = -3
-        self.diam = 50
+        self.diam = 30
         self.rad = self.diam/2
         self.col = randColor()
         self.gameOver = False
         self.score = 0
         self.rate = 1.05
-        self.wallScore = 1
+        self.bounceScore = 1
         self.brickScore = 5
     
     def render(self):
@@ -35,14 +35,16 @@ class Ball:
         
     def checkCollision(self, paddle):
         global wallScore
-        if self.x >= paddle.x and self.x <= paddle.x + paddle.width:
+        if self.x+self.rad >= paddle.x and self.x-self.rad <= paddle.x + paddle.width:
             if self.y + self.rad >= paddle.y - 1:
                 self.velY *= -1
-                self.score += self.wallScore
+                self.score += self.bounceScore
     
     def checkBrick(self, brick_list):
         global brickScore
         for b in brick_list:
-            if (dist(self.x, self.y, b.x + b.size/2, b.y+b.size/2) <= self.rad):
+            if (dist(self.x, self.y, b.x + b.size/2, b.y+b.size/2) <= self.rad+b.size/2):
                 brick_list.remove(b)
                 self.score += self.brickScore
+                self.velX *= -1
+                self.velY *= -1
