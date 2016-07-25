@@ -16,7 +16,7 @@ enemyStartY = 50
 enemySize = 50
 enemySpace = 10
 enemySpeedX = 1
-enemyMaxSpeed = 1.5
+enemyMaxSpeed = 1.3
 ex = enemyStartX
 ey = enemyStartY
 
