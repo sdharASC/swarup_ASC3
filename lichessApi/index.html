@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lichess Lookup</title>
+	<style type="text/css">
+
+		h3{
+			text-decoration: underline;
+		}
+
+		#results>p{
+			display: inline;
+			font-size: 1.5em;
+			padding: 5px;
+		}
+
+		a{
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="search" placeholder="Username">
+	<button id="submit">Look up</button>
+	<br>
+	<br>
+	<div id="results">
+		<h3>Username:</h3> <p id ='username'></p><br>
+		<h3>Title: </h3><p id='title'></p><br>
+		<h3>Online: </h3><p id ='online'></p><br>
+		<h3>Engine: </h3><p id ='engine'></p><br>
+		<h3>Profile: </h3><p id ='profile'></p><br>
+		<h3> Profile Url: </h3><p id ='url'></p><br>
+		<h3> Performance: </h3><p id ='perfs'></p><br>
+		<h3> Number of followers: </h3><p id ='nbFollowers'></p><br>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
